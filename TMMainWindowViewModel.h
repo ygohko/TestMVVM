@@ -12,15 +12,16 @@ public:
     Q_PROPERTY(int price MEMBER price);
     Q_PROPERTY(int total MEMBER total);
 
-    int price;
-    int total;
-
 signals:
-    void populateToViewRequested();
-    void populateToViewModelRequested();
+    void populationToViewRequested(int hint);
+    void populationToViewModelRequested(int hint);
 
 public slots:
     void calculate();
+
+private:
+    int price;
+    int total;
 };
 
 #endif

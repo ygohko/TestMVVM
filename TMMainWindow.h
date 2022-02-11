@@ -11,13 +11,13 @@ class TMMainWindow : public QMainWindow {
 Q_OBJECT
 
 public:
-    TMMainWindow(QWidget* parent = nullptr);
+    explicit TMMainWindow(QWidget* parent = nullptr);
     ~TMMainWindow();
     void setViewModel(QObject* viewModel);
 
 public slots:
-    void populateToView();
-    void populateToViewModel();
+    void populateToView(int hint);
+    void populateToViewModel(int hint);
 
 private:
     Ui::TMMainWindow *ui;

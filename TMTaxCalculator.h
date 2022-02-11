@@ -6,10 +6,12 @@ class TMTaxCalculator
 public:
     TMTaxCalculator(int price);
     virtual ~TMTaxCalculator();
-    int execute();
+    void execute();
+    int getTotal() const;
 
 private:
     int price;
+    int total;
 };
 
 #endif

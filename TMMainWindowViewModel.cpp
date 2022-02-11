@@ -3,13 +3,14 @@
 #include "TMTaxCalculator.h"
 
 TMMainWindowViewModel::TMMainWindowViewModel(QObject *parent) : QObject(parent) {
-    /// @todo Implement this
+    this->price = 0;
+    this->total = 0;
 }
 
 void TMMainWindowViewModel::calculate() {
-    /// @todo Implement this
-    emit this->populateToViewModelRequested();
+    emit this->populationToViewModelRequested(0);
     auto calculator = QScopedPointer(new TMTaxCalculator(this->price));
-    this->total = calculator->execute();
-    emit this->populateToViewRequested();
+    calculator->execute();
+    this->total = calculator->getTotal();
+    emit this->populationToViewRequested(0);
 }

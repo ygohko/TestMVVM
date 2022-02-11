@@ -2,15 +2,17 @@
 
 TMTaxCalculator::TMTaxCalculator(int price) {
     this->price = price;
+    this->total = 0;
 }
 
 TMTaxCalculator::~TMTaxCalculator() {
     // Do nothing
 }
 
-int TMTaxCalculator::execute() {
-    auto tax = this->price / 10;
-    auto total = this->price + tax;
+void TMTaxCalculator::execute() {
+    this->total = this->price + this->price / 10;
+}
 
-    return total;
+int TMTaxCalculator::getTotal() const {
+    return this->total;
 }

@@ -5,10 +5,11 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    TMMainWindow w;
-    TMMainWindowViewModel viewModel;
-    w.setViewModel(&viewModel);
-    w.show();
-    return a.exec();
+    QApplication application(argc, argv);
+    auto view = QScopedPointer(new TMMainWindow());
+    auto viewModel = QScopedPointer(new TMMainWindowViewModel());
+    view->setViewModel(viewModel.get());
+    view->show();
+
+    return application.exec();
 }
